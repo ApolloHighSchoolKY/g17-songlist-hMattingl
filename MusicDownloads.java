@@ -6,7 +6,11 @@ public class MusicDownloads{
 
   public DownloadInfo getDownloadInfo(String title)
   {
-    /* To be implemented in part (a) */
+    for(DownloadInfo x: downloadList)
+      if(x.getTitle().equals(title)
+        return x;
+
+    return null;
 
 
   }
@@ -14,7 +18,19 @@ public class MusicDownloads{
   public void updateDownloadInfo(List<String> titles)
   {
     /* To be implemented in part (b) */
-
+    for(String str: titles)
+    {
+      if(!downloadList.getDownloadInfo(str).equals(null))
+      {
+        downloadList.getDownloadInfo(str).incrementTimesDownloaded();
+      }
+      else
+      {
+        DownloadInfo x = new DownloadInfo(str)
+        x.incrementTimesDownloaded();
+        downloadList.add(x);
+      }
+    }
 
 
   }
