@@ -7,7 +7,7 @@ public class MusicDownloads{
   public DownloadInfo getDownloadInfo(String title)
   {
     for(DownloadInfo x: downloadList)
-      if(x.getTitle().equals(title)
+      if(x.getTitle().equals(title))
         return x;
 
     return null;
@@ -20,18 +20,16 @@ public class MusicDownloads{
     /* To be implemented in part (b) */
     for(String str: titles)
     {
-      if(!downloadList.getDownloadInfo(str).equals(null))
+      if(getDownloadInfo(str).equals(null))
       {
-        downloadList.getDownloadInfo(str).incrementTimesDownloaded();
-      }
-      else
-      {
-        DownloadInfo x = new DownloadInfo(str)
+        DownloadInfo x = new DownloadInfo(str);
         x.incrementTimesDownloaded();
         downloadList.add(x);
       }
+      else
+      {
+        getDownloadInfo(str).incrementTimesDownloaded();
+      }
     }
-
-
   }
 }
